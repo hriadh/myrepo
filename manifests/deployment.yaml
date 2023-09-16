@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-app
+  labels:
+    app: angular-app
+  namespace: namespace-workflow-1694873231548
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-app
+  template:
+    metadata:
+      labels:
+        app: angular-app
+    spec:
+      containers:
+        - name: angular-app
+          image: aksangularregistry.azurecr.io/image-workflow-1694873231548:latest
+          ports:
+            - containerPort: 80
